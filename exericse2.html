@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exerice</title>
+  </head>
+  <style>
+    body {
+      background-color: rgb(151, 149, 149);
+      width: 600px;
+    }
+    .container {
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+    }
+    .container h3 {
+      color: white;
+      text-decoration: underline;
+      letter-spacing: 2px;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    #output {
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Exerice 2:</h1>
+      <h3>Interacting Voting System</h3>
+
+      <div>
+        <input
+          type="text"
+          name=""
+          id="addFriend"
+          placeholder="Enter Friend Name"
+        />
+        <button id="addNew">Add Friend</button>
+      </div>
+      <table id="output"></table>
+    </div>
+
+    <!-- <script>
+      let outPut = document.getElementById("output");
+      let addBtn = document.getElementById("addNew");
+      let userInput = document.getElementById("userInput");
+     
+      addBtn.addEventListener("click", () => {
+        const newFriend = userInput.value;
+        myArray.push(newFriend);
+        
+      });
+    </script> -->
+
+    <!-- // -->
+    <script>
+      window.onload = build;
+
+      const message = document.getElementById("message");
+      const addNew = document.getElementById("addNew");
+      const newInput = document.getElementById("addFriend");
+      const output = document.getElementById("output");
+      let myArray = [
+        "Musa",
+        "Muhammed",
+        "Hashidu",
+        "Abdulrahim",
+        "Abdulhakim",
+        "Nafisat",
+        "Bilikis",
+        "Khadijah",
+        "Rukayah",
+        "Salamat",
+        "Faridah",
+      ];
+      addNew.onclick = function () {
+        const newFriend = newInput.value;
+        adder(newFriend, myArray.length, 0);
+        myArray.push(newFriend);
+      };
+      function build() {
+        myArray.forEach((item, index) => {
+          adder(item, index, 0);
+        });
+      }
+      function adder(name, index, counter) {
+        const tr = document.createElement("tr");
+        const td1 = document.createElement("td");
+        td1.classList.add("box");
+        td1.textContent = index + 1;
+        const td2 = document.createElement("td");
+        td2.textContent = name;
+        const td3 = document.createElement("td");
+        td3.textContent = counter;
+        tr.append(td1);
+        tr.append(td2);
+        tr.append(td3);
+        tr.onclick = function () {
+          console.log(tr.lastChild);
+          let val = Number(tr.lastChild.textContent);
+          val++;
+          tr.lastChild.textContent = val;
+        };
+        output.appendChild(tr);
+      }
+    </script>
+  </body>
+</html>
